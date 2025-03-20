@@ -1,0 +1,1 @@
+Este projeto permite adicionar, buscar e visualizar contatos armazenados em um banco de dados PostgreSQL via uma API Node.js.
