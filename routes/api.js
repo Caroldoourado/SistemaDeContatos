@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const contatoController = require('../src/controllers/contatoController');
 const router = express.Router();
 
@@ -13,15 +14,10 @@ router.get('/all', contatoController.getAll);
 
 router.get('/contato/:contato', contatoController.getContato);
 
-router.post("/novocontato", (req, res) =>{
-    let nome = req.body.nome;
-    let numero = req.body.numero;
-
-    if(!nome || !numero){
-        return res.status(400).send("Nome e número são obrigatórios!");
-    }
-    contatos.newContato(nome, numero);
-    res.send("Contato adicionado");
+router.get('/add', (req,res) => {
+    res.sendFile(path.join(__dirname, '../public/novoContato.html'));
 })
+
+router.post("/novocontato",express.urlencoded({extended:  true}), contatoController.addContato)
 
 module.exports = router;

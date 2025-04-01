@@ -21,7 +21,19 @@ async function getContato(req, res){
     }
 }
 
+
+async function addContato(req, res){
+    try{
+        const {nome, email, telefone} = req.body;
+        const contatoCriado = await contatoService.addContato(nome, email, telefone);
+        res.status(201).json(contatoCriado);
+    }catch (error){
+        res.status(400).json({erro: error.message});
+    }
+}
+
 module.exports = {
     getContato,
-    getAll
+    getAll,
+    addContato
 }

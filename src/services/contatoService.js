@@ -20,7 +20,18 @@ async function getContato(contato){
     }
 }
 
+async function addContato(nome, email, telefone){
+    try {
+        const result = await contatoModel.addContato(nome, email, telefone);
+        return result;
+    }catch(error){
+        console.error('Erro ao adicionar contato no service', error);
+        throw error;
+    }
+}
+
 module.exports = {
     getContato,
-    getAll
+    getAll,
+    addContato
 };
