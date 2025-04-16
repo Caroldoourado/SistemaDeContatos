@@ -13,7 +13,7 @@ module.exports = {
 
     getContato(contato) {
         return result = pool.query(
-                'SELECT CLI_NOME, CLI_TELEFONE FROM CLIENTES WHERE CLI_NOME ILIKE $1 OR CLI_TELEFONE LIKE $2', 
+                'SELECT CLI_ID, CLI_NOME, CLI_TELEFONE FROM CLIENTES WHERE CLI_NOME ILIKE $1 OR CLI_TELEFONE LIKE $2', 
                 [`%${contato}%`, `%${contato}%`]
             ).then(result => {
                 return result.rows;
@@ -31,6 +31,17 @@ module.exports = {
             return {message: "Contato inserido com sucesso!"}
         }).catch(error => {
             console.error("Erro ao inserir contato:", error)
+            throw error;
+        })
+    },
+
+    deleteContato(id){
+        return pool.query(
+            'DELETE FROM CLIENTES WHERE CLI_ID = $1', [id] 
+        ).then(result =>{
+            return {message: "Contato deletado com sucesso!"}
+        }).catch(error => {
+            console.error("Erro ao deletar contato:", error)
             throw error;
         })
     }

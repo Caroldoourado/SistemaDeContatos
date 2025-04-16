@@ -30,8 +30,19 @@ async function addContato(nome, email, telefone){
     }
 }
 
+async function deleteContato(id){
+    try {
+        const result = await contatoModel.deleteContato(id);
+        return result;
+    }catch(error){
+        console.error('Erro ao deletar contato no service', error);
+        throw error
+    }
+}
+
 module.exports = {
     getContato,
     getAll,
-    addContato
+    addContato,
+    deleteContato
 };

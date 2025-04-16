@@ -19,8 +19,8 @@ function getContato(){
             let contatosElements = '';
             contatos.forEach((contato) => {
                 let contatoElement = `<h5>${contato.cli_nome}</h5>
-                <p>${contato.cli_telefone}</p>`;
-
+                <p>${contato.cli_telefone}</p>
+                <button onclick="removerContato(${contato.cli_id})">Remover</button>`;
                 contatosElements += contatoElement; 
             })
             document.getElementById("contatosFiltrados").innerHTML = contatosElements;
@@ -31,20 +31,26 @@ function getContato(){
     .catch(error => console.error("Erro na requisição:", error));
 }
 
-function carregarAddContatos(){
-    fetch('http://localhost:3000/api/add').then(response => 
-        response.text()
-    ).then(data => {
-        document.body.innerHTML = data;
-    }).catch(error => console.error('Erro ao carregar a página,', error));
+function removerContato(id){
+    if(confirm("Você tem certeza que deseja remover este contato?")){
+        fetch(`http://localhost:3000/api/contatos/${id}`, {
+            method: "DELETE",
+        }).then (response => {
+            if(response.ok){
+                alert("Contato removido com sucesso!");
+                document.getElementById("contatosFiltrados").innerHTML = '';
+                document.getElementById("contato").value = '';
+            }else {
+                alert("Erro ao remover o contato.")
+            }
+        }).catch(error => console.error("Erro ao remover contato:", error));
+    }
 }
 
 function addContato(){
     let nome = document.getElementById('iname').value;
     let email = document.getElementById('iemail').value;
     let telefone = document.getElementById('itelefone').value;
-
-    
 
     if(!nome){
         alert('O campo Nome é obrigatório.')
@@ -56,14 +62,21 @@ function addContato(){
 
     let dados = {nome, email, telefone};
 
-    fetch("http://localhost:3000/api/novocontato", {
+    fetch("http://localhost:3000/api/contatos", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(dados)
     })
-    .then(response => response.json())
+    .then(response => {
+        if(!response.ok){
+            return response.json().then(errorData => {
+                throw new Error(errorData.erro || "Erro ao adicionar contato.");
+            });
+        }
+        return response.json();
+    })
     .then(data => {
         alert("Contato adicionado com sucesso!", data);
     })

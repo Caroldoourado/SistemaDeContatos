@@ -3,8 +3,9 @@ const contatoService = require('../services/contatoService');
 async function getAll(req, res){
    
    try{
-        let result = await contatoService.getAll();
-        res.json(result);
+        let all = await contatoService.getAll();
+        /* res.render('all', {all});*/
+        res.json(all);
    } catch (error){
     res.status(500).send(error);
    }
@@ -21,7 +22,6 @@ async function getContato(req, res){
     }
 }
 
-
 async function addContato(req, res){
     try{
         const {nome, email, telefone} = req.body;
@@ -32,8 +32,19 @@ async function addContato(req, res){
     }
 }
 
+async function deleteContato(req, res){
+    const id = req.params.id;
+    try{
+        await contatoService.deleteContato(id);
+        res.status(200).json({mesagem: 'Contato deletado com sucesso.'});
+    }catch(error){
+        console.error('Erro ao deletar contato: ', error);
+        res.status(500).json({erro:'Erro ao deletar contato.'})
+    }}
+
 module.exports = {
     getContato,
     getAll,
-    addContato
+    addContato,
+    deleteContato
 }
