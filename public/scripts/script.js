@@ -6,7 +6,7 @@ function getContato(){
         return;
     }
 
-    fetch(`http://localhost:3000/bmq/contato/${contato}`).then (res =>{
+    fetch(`https://bemmequer.onrender.com/bmq/contato/${contato}`).then (res =>{
         return res.json();
 
     }).then(contatos => {
@@ -43,7 +43,7 @@ document.getElementById('contato').addEventListener('keypress', function(event) 
 
 function removerContato(id){
     if(confirm("Você tem certeza que deseja remover este contato?")){
-        fetch(`http://localhost:3000/bmq/contatos/${id}`, {
+        fetch(`https://bemmequer.onrender.com/bmq/contatos/${id}`, {
             method: "DELETE",
         }).then (response => {
             if(response.ok){
@@ -72,7 +72,7 @@ function addContato(){
 
     let dados = {nome, email, telefone};
 
-    fetch("http://localhost:3000/bmq/contatos", {
+    fetch("https://bemmequer.onrender.com/bmq/contatos", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
