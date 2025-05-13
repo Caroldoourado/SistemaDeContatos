@@ -12,8 +12,9 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.use("/api", apiRoutes);
+app.use("/bmq", apiRoutes);
 
-app.listen(3000, () =>{
-    console.log("Servidor ouvindo na porta 3000");
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor ouvindo na porta ${PORT}`);
 })

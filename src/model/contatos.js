@@ -25,8 +25,8 @@ module.exports = {
 
     addContato(nome, email, telefone){
         return pool.query(
-            'INSERT INTO CLIENTES (CLI_NOME, CLI_EMAIL, CLI_TELEFONE) VALUES ($1, $2, $3)', 
-            [nome, email, telefone]
+            'INSERT INTO CLIENTES (CLI_NOME, CLI_EMAIL, CLI_TELEFONE, CLI_STATUS) VALUES ($1, $2, $3, $4)', 
+            [nome, email, telefone, '1']
         ).then(result =>{
             return {message: "Contato inserido com sucesso!"}
         }).catch(error => {

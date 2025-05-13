@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
     <title>Contatos</title>
 </head>
 <body>
+
+    <section>
+        <header class="section-header-contact">
+            <a href="http://localhost:3000"><img src="/images/left.png" alt=""></a>
+            <img src="/images/logo.png" alt="Logo Bem Me Quer">
+            <a href="/bmq/paginas/novo"><img src="/images/plus.png" alt=""></a>
+        </header>
+    </section>
+
+    <section class="section-search">
+            <input type="text" id="contato" placeholder="Contato" class="search-input">
+            <img onclick="getContato()" class="search" src="/images/search.png" alt="">
+    </section>
+
+    <section class="section-board-contact">
+        <div id="contatosFiltrados"> </div>
+    </section>
     
-    <input type="text" id="contato" placeholder="Contato">
-    <button onclick="getContato()">Pesquisar</button>
-
-    <button><a href="/api/paginas/novo">Adicionar contato</a></button>
-
-    <div id="contatosFiltrados"> </div>
-
     <script src="/scripts/script.js"></script>
 
-    
 </body>
 </html>

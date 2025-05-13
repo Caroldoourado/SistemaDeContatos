@@ -1,0 +1,156 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100vh;
+    font-size: 14px;
+}
+
+body {
+    margin: 0;
+    background-color: #4b007d; 
+    font-family: "Sora", sans-serif;
+    color: white;
+}
+
+.section-header{
+    text-align: center;
+    padding: 50px 20px 20px;
+}
+
+.section-header-contact{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px 40px;
+}
+
+.section-subHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.info, .user{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 20px 20px;
+}
+
+
+.section-board{
+    background-color: white;
+    min-height: 80vh;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding: 1.5em;
+    display: flex;
+    gap: 2em;
+}
+
+.section-board-contact{
+    background-color: white;
+    min-height: 80vh;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #4b007d;
+    border-radius: 10px;
+    height: 90px;
+    width: 90px;
+    padding: 20px;
+    font-size: 0.8em;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+
+.section-search{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-input{
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+input{
+    width: 280px;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.search{
+    cursor: pointer;
+}
+
+.card-contato{
+    background-color: rgba(42, 3, 94, 0.426);
+    border-radius: 12px;
+    padding: 1.4em;
+    margin: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;;
+}
+.card-contato:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+}
+
+.nome-contato{
+    margin-bottom: 10px;
+}
+
+.remover-contato{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(251, 109, 109);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.remover-contato:hover {
+    background-color: rgb(240, 80, 80);
+    transform: scale(1.05);
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #4b007d;
+    color: white;
+}
+.version{
+    font-size: 10px;
+}

@@ -6,7 +6,7 @@ function getContato(){
         return;
     }
 
-    fetch(`http://localhost:3000/api/contato/${contato}`).then (res =>{
+    fetch(`http://localhost:3000/bmq/contato/${contato}`).then (res =>{
         return res.json();
 
     }).then(contatos => {
@@ -18,9 +18,13 @@ function getContato(){
 
             let contatosElements = '';
             contatos.forEach((contato) => {
-                let contatoElement = `<h5>${contato.cli_nome}</h5>
-                <p>${contato.cli_telefone}</p>
-                <button onclick="removerContato(${contato.cli_id})">Remover</button>`;
+                let contatoElement = `<div class="card-contato">
+                    <div>
+                        <h5 class="nome-contato">${contato.cli_nome}</h5>
+                        <p>${contato.cli_telefone}</p>
+                    </div>
+                    <button onclick="removerContato(${contato.cli_id})" class="remover-contato">Remover</button>
+                </div>`;
                 contatosElements += contatoElement; 
             })
             document.getElementById("contatosFiltrados").innerHTML = contatosElements;
@@ -31,9 +35,15 @@ function getContato(){
     .catch(error => console.error("Erro na requisição:", error));
 }
 
+document.getElementById('contato').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        getContato();
+    }
+});
+
 function removerContato(id){
     if(confirm("Você tem certeza que deseja remover este contato?")){
-        fetch(`http://localhost:3000/api/contatos/${id}`, {
+        fetch(`http://localhost:3000/bmq/contatos/${id}`, {
             method: "DELETE",
         }).then (response => {
             if(response.ok){
@@ -62,7 +72,7 @@ function addContato(){
 
     let dados = {nome, email, telefone};
 
-    fetch("http://localhost:3000/api/contatos", {
+    fetch("http://localhost:3000/bmq/contatos", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
