@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
     <title>Contato</title>
 </head>
 <body>
-    <main>
+    <section>
+        <label for="iname">Nome</label>
+        <input type="text" name="name" id="iname">
+        <label for="iemail">Email</label>
+        <input type="email" name="email" id="iemail">
+        <label for="itelefone">Telefone</label>
+        <input type="tel" name="telefone" id="itelefone" placeholder="Ex. 62994307587">
+        <button onclick="addContato()">Salvar</button>
+    </section>
         
-            <label for="iname">Nome</label>
-            <input type="text" name="name" id="iname">
-            <label for="iemail">Email</label>
-            <input type="email" name="email" id="iemail">
-            <label for="itelefone">Telefone</label>
-            <input type="tel" name="telefone" id="itelefone" placeholder="Ex. 62994307587">
-            <button onclick="addContato()">Salvar</button>
-        
-    </main>
-
     <script src="/scripts/script.js"></script>
 </body>
 </html>

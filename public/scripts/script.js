@@ -2,7 +2,7 @@ function getContato(){
     let contato = document.getElementById('contato').value;
 
     if(!contato){
-        alert("Informe o nome ou o número do contato");
+        abrirModal("Informe o nome ou o número do contato");
         return;
     }
 
@@ -12,7 +12,7 @@ function getContato(){
     }).then(contatos => {
         try{
             if(contatos.length === 0){
-                document.getElementById("contatosFiltrados").innerHTML = "<p> Nenhum contato encontrado.<p/>";
+                document.getElementById("contatosFiltrados").innerHTML = `<p style="color: black; text-align: center;"> Nenhum contato encontrado.</p>`;
                 return;
             }
 
@@ -29,7 +29,7 @@ function getContato(){
             })
             document.getElementById("contatosFiltrados").innerHTML = contatosElements;
         } catch (error){
-            alert('Erro ao processar contatos recebidos');
+            abrirModal('Erro ao processar contatos recebidos');
         }
     })
     .catch(error => console.error("Erro na requisição:", error));
@@ -47,11 +47,11 @@ function removerContato(id){
             method: "DELETE",
         }).then (response => {
             if(response.ok){
-                alert("Contato removido com sucesso!");
+                abrirModal("Contato removido com sucesso!");
                 document.getElementById("contatosFiltrados").innerHTML = '';
                 document.getElementById("contato").value = '';
             }else {
-                alert("Erro ao remover o contato.")
+                abrirModal("Erro ao remover o contato.")
             }
         }).catch(error => console.error("Erro ao remover contato:", error));
     }
@@ -63,11 +63,11 @@ function addContato(){
     let telefone = document.getElementById('itelefone').value;
 
     if(!nome){
-        alert('O campo Nome é obrigatório.')
+        abrirModal('O campo Nome é obrigatório.')
     }else if(!email){
-        alert('O campo Email é obrigatório.')
+        abrirModal('O campo Email é obrigatório.')
     }else if(!telefone){
-        alert('O campo Telefone é obrigatório.')
+        abrirModal('O campo Telefone é obrigatório.')
     }
 
     let dados = {nome, email, telefone};
@@ -88,9 +88,18 @@ function addContato(){
         return response.json();
     })
     .then(data => {
-        alert("Contato adicionado com sucesso!", data);
+        abrirModal("Contato adicionado com sucesso!", data);
     })
     .catch(error => {
-        console.error("Erro ao adicionar contato: ", error);
+        abrirModal("Erro ao adicionar contato: ", error);
     });
+}
+
+function abrirModal(mensagem) {
+  document.getElementById('mensagemModal').innerText = mensagem;
+  document.getElementById('modal').style.display = 'flex';
+}
+
+function fecharModal() {
+  document.getElementById('modal').style.display = 'none';
 }
