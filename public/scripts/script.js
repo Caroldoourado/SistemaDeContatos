@@ -64,10 +64,13 @@ function addContato(){
 
     if(!nome){
         abrirModal('O campo Nome é obrigatório.')
+        return;
     }else if(!email){
         abrirModal('O campo Email é obrigatório.')
+        return;
     }else if(!telefone){
         abrirModal('O campo Telefone é obrigatório.')
+        return;
     }
 
     let dados = {nome, email, telefone};
