@@ -4,7 +4,7 @@ const path = require('path');
 const contatoController = require('../src/controllers/contatoController');
 const router = express.Router();
 
-const options = { origin: ["http://localhost:3000", "https://bemmequer.onrender.com"]}
+ const options = { origin: ["http://localhost:3000", "https://bemmequer.onrender.com"]}
 router.use(cors(options));
 
 router.get('/contatos', contatoController.getAll);

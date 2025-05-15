@@ -7,15 +7,32 @@
     <title>Contato</title>
 </head>
 <body>
-    <section class="section-board-contact">
-        <label for="iname">Nome</label>
-        <input type="text" name="name" id="iname">
-        <label for="iemail">Email</label>
-        <input type="email" name="email" id="iemail">
-        <label for="itelefone">Telefone</label>
-        <input type="tel" name="telefone" id="itelefone" placeholder="Ex. 62994307587">
-        <button onclick="addContato()">Salvar</button>
+    <section>
+        <header class="section-header-contact novo">
+            <a href="https://bemmequer.onrender.com/"><img src="/images/left.png" alt=""></a>
+            <img src="/images/logo.png" alt="Logo Bem Me Quer">
+            <a href="#"><img src="" alt=""></a>
+        </header>
     </section>
+
+    <section class="section-board-contact board-novo-contato">
+
+            <label for="iname" class="label">Nome</label>
+            <input type="text" name="name" id="iname" class="input-novo-contato">
+            <label for="iemail" class="label">Email</label>
+            <input type="email" name="email" id="iemail" class="input-novo-contato">
+            <label for="itelefone" class="label">Telefone</label>
+            <input type="tel" name="telefone" id="itelefone" placeholder="Ex. 5562994307587" class="input-novo-contato">
+            <button onclick="addContato()" class="add-contato">Adicionar</button>
+
+    </section>
+
+    <section id="modal" class="modal">
+        <div class="modal-content">
+         <span class="fechar" onclick="fecharModal()">&times;</span>
+         <p id="mensagemModal"></p>
+        </div>
+   </section>
         
     <script src="/scripts/script.js"></script>
 </body>

@@ -53,7 +53,7 @@ body {
 
 .section-board-contact{
     background-color: white;
-    min-height: 80vh;
+    min-height: 100vh;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     padding: 1.5em;
@@ -93,7 +93,7 @@ body {
 .search-input{
     padding: 10px;
     border-radius: 20px;
-    border: none;
+    border: 1px solid black;
 }
 
 input{
@@ -170,7 +170,7 @@ footer{
 
 .modal-content {
   background-color: #5f2189;;
-  padding: 40px 20px;
+  padding: 40px 10px;
   border-radius: 10px;
   max-width: 400px;
   width: 90%;
@@ -189,4 +189,32 @@ footer{
   right: 15px;
   font-size: 20px;
   cursor: pointer;
+}
+
+.board-novo-contato{
+    display: flex;
+    align-items: center;
+}
+
+.input-novo-contato{
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.label{
+    width: 100%;
+    text-align: start;
+    color: black;
+    margin: 15px 0 5px;
+}
+
+.add-contato{
+    margin-top: 25px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: #4b007d;
+    color: white;
 }
