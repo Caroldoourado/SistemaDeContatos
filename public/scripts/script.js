@@ -62,16 +62,18 @@ function addContato(){
     let email = document.getElementById('iemail').value;
     let telefone = document.getElementById('itelefone').value;
 
+    const telefoneRegex = /^55\d{2}9\d{8}$/;
+
     if(!nome){
         abrirModal('O campo Nome é obrigatório.')
-        return;
-    }else if(!email){
-        abrirModal('O campo Email é obrigatório.')
         return;
     }else if(!telefone){
         abrirModal('O campo Telefone é obrigatório.')
         return;
-    }
+    } else if (!telefoneRegex.test(telefone)) {
+    abrirModal('Telefone inválido. Use o padrão: 55 + DDD + 9 + número (ex: 5562999999999).');
+    return;
+}
 
     let dados = {nome, email, telefone};
 
