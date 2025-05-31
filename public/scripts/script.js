@@ -95,9 +95,18 @@ function addContato(){
     .then(data => {
         abrirModal("Contato adicionado com sucesso!", data);
     })
-    .catch(error => {
-        abrirModal(error.message || "Erro ao adicionar contato.");
-    });
+    .catch(async (error) => {
+    if (error instanceof Error && error.message) {
+        abrirModal(error.message);
+    } else {
+        try {
+            const response = await error.json();
+            abrirModal(response.erro || "Erro ao adicionar contato.");
+        } catch (e) {
+            abrirModal("Erro ao adicionar contato.");
+        }
+    }
+});
 }
 
 function abrirModal(mensagem) {
