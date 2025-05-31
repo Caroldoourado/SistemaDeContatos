@@ -25,10 +25,10 @@ module.exports = {
 
     async addContato(nome, email, telefone){
          try {
-        const query = 'INSERT INTO clientes (cli_nome, cli_email, cli_telefone) VALUES ($1, $2, $3) RETURNING *';
-        const values = [nome, email, telefone];
-        const result = await pool.query(query, values);
-        return result.rows[0];
+            const query = 'INSERT INTO clientes (cli_nome, cli_email, cli_telefone, cli_status) VALUES ($1, $2, $3, $4) RETURNING *';
+            const values = [nome, email, telefone, '1'];
+            const result = await pool.query(query, values);
+            return result.rows[0];
     } catch (error) {
         if (error.code === '23505') {
             throw new Error('Contato já adicionado');
