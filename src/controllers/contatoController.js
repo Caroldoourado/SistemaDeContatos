@@ -28,6 +28,7 @@ async function addContato(req, res){
         const contatoCriado = await contatoService.addContato(nome, email, telefone);
         res.status(201).json(contatoCriado);
     }catch (error){
+        console.error('Erro no controller:', error.message);
         res.status(400).json({erro: error.message});
     }
 }

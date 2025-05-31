@@ -95,23 +95,16 @@ function addContato(){
     .then(data => {
         abrirModal("Contato adicionado com sucesso!", data);
     })
-    .catch(async (error) => {
-    if (error instanceof Error && error.message) {
-        abrirModal(error.message);
-    } else {
-        try {
-            const response = await error.json();
-            abrirModal(response.erro || "Erro ao adicionar contato.");
-        } catch (e) {
-            abrirModal("Erro ao adicionar contato.");
-        }
-    }
+   .catch(error => {
+    console.error('Erro retornado:', error);
+    abrirModal(error.message || "Erro ao adicionar contato.");
 });
 }
 
 function abrirModal(mensagem) {
-  document.getElementById('mensagemModal').innerText = mensagem;
-  document.getElementById('modal').style.display = 'flex';
+    const modal = document.getElementById("modal");
+    modal.innerText = mensagem;
+    modal.style.display = "block";
 }
 
 function fecharModal() {

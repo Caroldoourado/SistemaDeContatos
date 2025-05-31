@@ -25,7 +25,7 @@ async function addContato(nome, email, telefone){
         const result = await contatoModel.addContato(nome, email, telefone);
         return result;
     }catch(error){
-        console.error('Erro ao adicionar contato no service', error);
+        console.error('Erro ao adicionar contato no service', error.message);
         throw error;
     }
 }
