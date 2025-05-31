@@ -102,9 +102,8 @@ function addContato(){
 }
 
 function abrirModal(mensagem) {
-    const modal = document.getElementById("modal");
-    modal.innerText = mensagem;
-    modal.style.display = "block";
+  document.getElementById('mensagemModal').innerText = mensagem;
+  document.getElementById('modal').style.display = 'flex';
 }
 
 function fecharModal() {
