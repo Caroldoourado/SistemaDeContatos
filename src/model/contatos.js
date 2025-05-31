@@ -23,16 +23,18 @@ module.exports = {
         });
     },
 
-    addContato(nome, email, telefone){
-        return pool.query(
-            'INSERT INTO CLIENTES (CLI_NOME, CLI_EMAIL, CLI_TELEFONE, CLI_STATUS) VALUES ($1, $2, $3, $4)', 
-            [nome, email, telefone, '1']
-        ).then(result =>{
-            return {message: "Contato inserido com sucesso!"}
-        }).catch(error => {
-            console.error("Erro ao inserir contato:", error)
-            throw error;
-        })
+    async addContato(nome, email, telefone){
+         try {
+        const query = 'INSERT INTO contatos (nome, email, telefone) VALUES ($1, $2, $3) RETURNING *';
+        const values = [nome, email, telefone];
+        const result = await pool.query(query, values);
+        return result.rows[0];
+    } catch (error) {
+        if (error.code === '23505') {
+            throw new Error('Contato já adicionado');
+        }
+        throw new Error('Erro ao adicionar contato');
+    }
     },
 
     deleteContato(id){

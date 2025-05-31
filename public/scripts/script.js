@@ -96,7 +96,7 @@ function addContato(){
         abrirModal("Contato adicionado com sucesso!", data);
     })
     .catch(error => {
-        abrirModal("Erro ao adicionar contato: ", error);
+        abrirModal(error.message || "Erro ao adicionar contato.");
     });
 }
 
