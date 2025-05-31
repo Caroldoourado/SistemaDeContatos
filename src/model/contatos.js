@@ -25,7 +25,7 @@ module.exports = {
 
     async addContato(nome, email, telefone){
          try {
-        const query = 'INSERT INTO contatos (nome, email, telefone) VALUES ($1, $2, $3) RETURNING *';
+        const query = 'INSERT INTO clientes (cli_nome, cli_email, cli_telefone) VALUES ($1, $2, $3) RETURNING *';
         const values = [nome, email, telefone];
         const result = await pool.query(query, values);
         return result.rows[0];
