@@ -33,7 +33,7 @@ module.exports = {
         if (error.code === '23505') {
             throw new Error('Contato já adicionado');
         }
-        throw new Error('Erro ao adicionar contato');
+        throw new Error('Erro ao adicionar contato. Verifique se o contato já existe.');
     }
     },
 
