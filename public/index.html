@@ -3,72 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/styleMobile.css">
+    <link rel="stylesheet" href="/styles/styleDesktop.css" media="(min-width: 768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Sora:wght@100&family=Yeseva+One&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="./bootstrap/css/bootstrap.css"> -->
-    <title>Bem Me Quer</title>
+    <title>Bem Me Quer Estética</title>
 </head>
 <body>
 
-    <section class="section-header">
-        <header>
+    <section class="mobile">
+        <header class="section-header-mobile">
             <img src="/images/logo.png" alt="Logo Bem Me Quer" class="logo">
         </header>
-    </section>
-
-    <!-- <section class="section-subHeader">
-        <div class="info">
-            <h1>Olá, Débora</h1>
-            <p>17, Abril 2025</p>
-        </div>
-
-        <div class="user">
-            <img src="/images/user.png" alt="">
-        </div>
-    </section> -->
-
-    <section class="section-board">
-        <div>
-            <a class="card" href="/bmq/paginas/contatos">
-                <img src="/images/call.png" alt="Imagem Agenda" width="50px">
-                <p>Contatos</p>
-            </a>
-        </div>
-    </section>
-
-
-    <!-- <section class="section-header">
-        <header>
-            <p class="nome-usuario">Olá, Débora</p>
-            <img src="/images/logo.png" alt="Logo Bem Me Quer">
-            <img src="/images/profile-user.png" alt="User">
-        </header>
-    </section>
-    <section class="section-nav">
-        <nav class="nav-icons">
-            <div class="item-nav">
-                <a href="/api/paginas/contatos">
-                    <img src="/images/call.png" alt="Imagem Agenda">
+        <section class="section-board-mobile">
+            <div>
+                <a class="card" href="pages/clientes.html"> <!--href="/bmq/paginas/contatos" -->
+                    <img src="/images/call.png" alt="Imagem Agenda" width="50px">
+                    <p>Pesquisar</p>
                 </a>
-                <p class="nome-icone">Contatos</p>
             </div>
-        </nav>
-    </section>  -->
+        </section>
+    </section>
 
-    <!-- <nav>
-        <div class="div_menu">
-            <a class="menu" href="/api/paginas/contatos">
-                <img class="img-menu" src="/images/call.png" alt="Imagem Agenda">
-            </a>
+    <section class="desktop">
+        <header class="section-header-desktop">
+            <img src="images/logo.png" alt="Logo Bem Me Quer" width="60px">
+            <a href="pages/clientes.html" class="text-menu-desktop">Clientes</a>
+        </header>
 
-             <img class="img-logo" src="/images/logo.png" alt="Logo Bem Me Quer">
-            <h1>Bem Me Quer</h1>
-        </div>
-    </nav> -->
+        <section class="section-board-desktop">
+            <img src="images/logo-nome.png" class="logo-desfoque" alt="">
+        </section>
+    </section>
     
-
     <footer>
         <p class="version">2025_05_30_06</p>
     </footer>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styleMobile.css">
+    <link rel="stylesheet" href="/styles/styleDesktop.css" media="(min-width: 768px)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=Sora:wght@100&family=Yeseva+One&display=swap" rel="stylesheet">
+    <title>Contatos</title>
+</head>
+<body>
+
+    <section class="mobile">
+        <section>
+            <header class="section-header-mobile">
+                <a href="../index.html"><img src="/images/left.png" alt=""></a> <!--"https://bemmequer.onrender.com/"!-->
+                <img src="/images/logo.png" alt="Logo Bem Me Quer" class="logo">
+                <a href="novoCliente.html"><img src="/images/plus.png" alt=""></a> <!--/bmq/paginas/novo-->
+            </header>
+        </section>
+
+        <section class="section-search">
+            <input type="text" id="contato-mobile" placeholder="Pesquisar cliente..." class="search-input">
+            <img onclick="getContato()" class="search" src="/images/search.png" alt="">
+        </section>
+
+        <section class="section-board-contact">
+             <div id="contatosFiltradosMobile"></div>
+        </section>
+    </section>
+
+    <section class="desktop">
+        <a href="../index.html"><img src="/images/logo.png" class="logo" alt=""></a>
+        <section class="section-search">
+            <!-- <input type="text" id="contato-desktop" placeholder="Pesquisar cliente..." class="search-input"> -->
+             <input type="text" id="contato-desktop" list="lista-clientes" placeholder="Pesquisar cliente..." class="search-input">
+             <datalist id="lista-clientes"></datalist>
+            <img onclick="getContato()" class="search" src="/images/lupa-branca.png" width="40px" alt="" >
+        </section>
+
+        <section class="section-board-contact">
+            <div id="contatosFiltradosDesktop"></div>
+        </section>
+    </section>
+
+    <section id="modal" class="modal">
+        <div class="modal-content">
+         <span class="fechar" onclick="fecharModal()">&times;</span>
+         <p id="mensagemModal"></p>
+        </div>
+   </section>
+
+    <script src="/scripts/script.js"></script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@ const pool = require('../config/db');
 module.exports = {
 
     getAll(){
-        return result = pool.query('select * from clientes').then(result =>{
+        return result = pool.query('SELECT cli_id, cli_nome || ' - ' || cli_telefone AS cli_nome_telefone FROM cliente;').then(result =>{
             return result.rows;
         }).catch(erro => {
             console.error("Erro ao buscar contatos", erro);

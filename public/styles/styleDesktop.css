@@ -1,0 +1,87 @@
+/*--CONFIGURAÇÕES INDEX--*/
+.mobile{
+    display: none;
+}
+
+.desktop{
+    display: block;
+}
+
+.section-header-desktop{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 40px auto;
+    padding: 10px 15px;
+    max-width: 40%;
+    background-color: #33145ea2;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
+.text-menu-desktop {
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.text-menu-desktop:hover {
+    color: #dfddddf6;
+}
+
+.section-board-desktop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.header-contatos{
+    display: flex;
+    gap: 50px;
+    justify-content: space-evenly;
+}
+
+.logo{
+    margin:50px 0 0 50px;
+}
+/*--CONFIGURAÇÕES novoCliente--*/
+
+.section-board-contact{
+    margin-top: 50px;
+}
+
+.search-input{
+    width: 400px;
+    height: 40px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.288);
+}
+
+.search {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.search:hover {
+  transform: scale(1.1);
+}
+
+input:focus {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.288);
+}
+
+/*--Configurações clientes pesquisados*/
+#contatosFiltradosDesktop{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-contato{
+    min-width: 40%;
+}
+
+.nome-contato{
+    font-size: 18px;
+}

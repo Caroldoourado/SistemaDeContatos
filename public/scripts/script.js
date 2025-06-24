@@ -1,5 +1,14 @@
 function getContato(){
-    let contato = document.getElementById('contato').value;
+const inputMobile = document.getElementById('contato-mobile');
+    const inputDesktop = document.getElementById('contato-desktop');
+
+    let contato = "";
+
+    if (window.innerWidth < 768) {
+        contato = inputMobile.value;
+    } else {
+        contato = inputDesktop.value;
+    }
 
     if(!contato){
         abrirModal("Informe o nome ou o número do contato");
@@ -11,12 +20,14 @@ function getContato(){
 
     }).then(contatos => {
         try{
+            let containerId = window.innerWidth < 768 ? "contatosFiltradosMobile" : "contatosFiltradosDesktop";
             if(contatos.length === 0){
-                document.getElementById("contatosFiltrados").innerHTML = `<p style="color: black; text-align: center;"> Nenhum contato encontrado.</p>`;
+                document.getElementById(containerId).innerHTML = `<p style="color: black; text-align: center; margin-bottom: 50px"> Nenhum contato encontrado.</p>`;
                 return;
             }
 
             let contatosElements = '';
+            
             contatos.forEach((contato) => {
                 let contatoElement = `<div class="card-contato">
                     <div>
@@ -27,7 +38,7 @@ function getContato(){
                 </div>`;
                 contatosElements += contatoElement; 
             })
-            document.getElementById("contatosFiltrados").innerHTML = contatosElements;
+            document.getElementById(containerId).innerHTML = contatosElements;
         } catch (error){
             abrirModal('Erro ao processar contatos recebidos');
         }
@@ -35,11 +46,18 @@ function getContato(){
     .catch(error => console.error("Erro na requisição:", error));
 }
 
-document.getElementById('contato').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        getContato();
-    }
-});
+function carregarListaClientes(){
+    fetch("https://bemmequer.onrender.com/bmq/contatos")
+    .then(res => res.json())
+    .then(clientes => {
+        const datalist = document.getElementById("lista-contatos");
+        datalist.innerHTML = ""
+
+        clientes.forEach(cliente) => {
+            const option = document.createElement("option")
+        }
+    })
+}
 
 function removerContato(id){
     if(confirm("Você tem certeza que deseja remover este contato?")){
@@ -109,3 +127,11 @@ function abrirModal(mensagem) {
 function fecharModal() {
   document.getElementById('modal').style.display = 'none';
 }
+
+document.getElementById('contato-mobile').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') getContato();
+});
+
+document.getElementById('contato-desktop').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') getContato();
+});
